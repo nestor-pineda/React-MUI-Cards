@@ -1,5 +1,26 @@
+import { useEffect, useState } from "react";
+
 const Notes = () => {
-  return <div>Notes Page</div>;
+  const [notes, setNotes] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/notes")
+      .then((res) => res.json())
+      .then((data) => setNotes(data));
+  }, []);
+
+  return (
+    <>
+      {notes.map((item) => {
+        return (
+          <div key={item.id}>
+            <h2>{item.title}</h2>
+            <p>{item.details}</p>
+          </div>
+        );
+      })}
+    </>
+  );
 };
 
 export default Notes;

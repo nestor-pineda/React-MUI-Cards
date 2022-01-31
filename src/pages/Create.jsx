@@ -9,6 +9,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { styled } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 
 const CustomizedFormControl = styled(FormControl)`
   color: #20b2aa;
@@ -23,6 +24,8 @@ const Create = () => {
   const [detailsError, setDetailsError] = useState(false);
   const [category, setCategory] = useState("female");
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setTitleError(false);
@@ -35,7 +38,13 @@ const Create = () => {
       setDetailsError(true);
     }
     if (title && details) {
-      console.log(title, details, category);
+      fetch("http://localhost:8000/notes", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ title, details, category }),
+      }).then(() => {
+        navigate("/");
+      });
     }
   };
 
