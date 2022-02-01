@@ -1,6 +1,10 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import NoteCard from "../components/NoteCard";
+import Hero from "../components/Hero/Hero";
 
-const Notes = () => {
+export default function Notes() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
@@ -9,18 +13,26 @@ const Notes = () => {
       .then((data) => setNotes(data));
   }, []);
 
+  const handleDelete = async (id) => {
+    await fetch("http://localhost:8000/notes/" + id, {
+      method: "DELETE",
+    });
+    const newNotes = notes.filter((note) => note.id != id);
+    setNotes(newNotes);
+  };
+
   return (
     <>
-      {notes.map((item) => {
-        return (
-          <div key={item.id}>
-            <h2>{item.title}</h2>
-            <p>{item.details}</p>
-          </div>
-        );
-      })}
+      <Hero />
+      <Container>
+        <Grid container spacing={3}>
+          {notes.map((note) => (
+            <Grid item xs={12} md={6} lg={4} key={note.id}>
+              <NoteCard note={note} handleDelete={handleDelete} />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
     </>
   );
-};
-
-export default Notes;
+}
