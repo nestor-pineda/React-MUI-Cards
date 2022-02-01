@@ -13,7 +13,7 @@ function App() {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <NavBar />
+        {/* <NavBar /> */}
         <Router>
           <Layout>
             <Routes>

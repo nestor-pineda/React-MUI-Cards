@@ -1,12 +1,11 @@
 import { Pages } from "./style";
 import SideBar from "../SideBar/SideBar";
-// import Drawer from "@mui/material/Drawer";
-// import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
+import NavBar from "../NavBar/NavBar";
 
 const useStyles = makeStyles({
   root: {
-    display: "flex",
+    display: "",
   },
 });
 
@@ -14,6 +13,7 @@ const Layout = ({ children }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
+      <NavBar className={classes.appbar} />
       <SideBar />
       <Pages>{children}</Pages>
     </div>
