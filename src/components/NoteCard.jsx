@@ -7,10 +7,13 @@ import Typography from "@mui/material/Typography";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import { makeStyles } from "@mui/styles";
 
+import { useTheme } from "../themeContext/ThemeContext";
+// import { useThemeUpdate } from "../themeContext/ThemeContext";
+
 const useStyles = makeStyles({
   test: {
     border: (note) => {
-      if (note.category == "work") {
+      if (note.category === "work") {
         return "1px solid red";
       }
     },
@@ -19,10 +22,16 @@ const useStyles = makeStyles({
 
 export default function NoteCard({ note, handleDelete }) {
   const classes = useStyles(note);
+  const darkTheme = useTheme();
+
+  const myStyles = {
+    backgroundColor: darkTheme ? "black" : "tomato",
+    color: "white",
+  };
 
   return (
     <div>
-      <Card elevation={1} className={classes.test}>
+      <Card elevation={1} className={classes.test} style={myStyles}>
         <CardHeader
           action={
             <IconButton onClick={() => handleDelete(note.id)}>
