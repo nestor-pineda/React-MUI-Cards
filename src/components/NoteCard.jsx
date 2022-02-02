@@ -6,9 +6,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import { makeStyles } from "@mui/styles";
-
 import { useTheme } from "../themeContext/ThemeContext";
-// import { useThemeUpdate } from "../themeContext/ThemeContext";
 
 const useStyles = makeStyles({
   test: {

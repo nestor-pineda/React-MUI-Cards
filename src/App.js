@@ -6,7 +6,7 @@ import theme from "./theme/theme";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./theme/global";
 import Layout from "./components/Layout/Layout";
-import { ThemeProviderLightDark } from "./themeContext/ThemeContext";
+// import { ThemeProviderLightDark } from "./themeContext/ThemeContext";
 
 function App() {
   return (
@@ -14,14 +14,14 @@ function App() {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Router>
-          <ThemeProviderLightDark>
-            <Layout>
-              <Routes>
-                <Route path="/" element={<Notes />} />
-                <Route path="/create" element={<Create />} />
-              </Routes>
-            </Layout>
-          </ThemeProviderLightDark>
+          {/* <ThemeProviderLightDark> */}
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Notes />} />
+              <Route path="/create" element={<Create />} />
+            </Routes>
+          </Layout>
+          {/* </ThemeProviderLightDark> */}
         </Router>
       </ThemeProvider>
     </>
