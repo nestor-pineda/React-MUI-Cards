@@ -12,8 +12,8 @@ export default function NavBar() {
   const toggleTheme = useThemeUpdate();
   const darkTheme = useTheme();
 
-  const light = "💛";
-  const dark = "💜";
+  const light = "🌞";
+  const dark = "🌛";
 
   const myStyles = {
     backgroundColor: darkTheme ? "black" : "tomato",
