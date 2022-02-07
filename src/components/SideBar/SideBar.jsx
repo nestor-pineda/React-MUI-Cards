@@ -8,6 +8,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { AddCircleOutlineOutlined, SubjectOutlined } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
+import { useTheme } from "../../themeContext/ThemeContext";
 
 const useStyles = makeStyles({
   myDrawer: {
@@ -26,7 +27,12 @@ const SideBar = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   const location = useLocation();
-  //Dinamicaly puts a lcass into the link item where we are... To change the style of the active menu item.
+  const darkTheme = useTheme();
+
+  const myStyles = {
+    backgroundColor: darkTheme ? "#ba000d" : "#ff7961",
+    color: darkTheme ? "#fff" : "#000",
+  };
 
   const menuItems = [
     {
@@ -43,7 +49,7 @@ const SideBar = () => {
 
   return (
     <Drawer className={classes.myDrawer} variant="permanent" anchor="left" classes={{ paper: classes.myDrawerPaper }}>
-      <div>
+      <div style={myStyles}>
         <Typography variant="h5">Some Note</Typography>
       </div>
       <List>

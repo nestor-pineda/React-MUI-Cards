@@ -1,34 +1,22 @@
-import { createTheme } from "@mui/material/styles";
-import { purple, green } from "@mui/material/colors";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#000",
-    },
-    secondary: green,
-  },
-  typography: {
-    fontFamily: "Raleway",
-    fontWeightLight: 300,
-    fontWeightRegular: 400,
-    fontWeightMedium: 500,
-    fontWeightBold: 700,
-  },
-});
-export default theme;
-
 //CON STYLED COMPONENTS
 
-/* const theme = {
+const theme = {
   palette: {
     primary: {
-      main: "#FF0000",
+      main: "#f44336",
+      light: "#ff7961",
+      dark: "#ba000d",
+      contrastText: "#fff",
     },
-    secondary: "#998877",
+    secondary: {
+      main: "#2196f3",
+      light: "#6ec6ff",
+      dark: "#0069c0",
+      contrastText: "#fff",
+    },
   },
   typography: {
-    fontFamily: "Raleway",
+    fontFamily: "Ubuntu",
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
@@ -37,4 +25,3 @@ export default theme;
 };
 
 export default theme;
- */

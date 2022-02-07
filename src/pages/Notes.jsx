@@ -29,7 +29,6 @@ export default function Notes() {
 
   return (
     <>
-      <Hero />
       <Container>
         <Masonry breakpointCols={breackpoints} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
           {notes.map((note) => (
